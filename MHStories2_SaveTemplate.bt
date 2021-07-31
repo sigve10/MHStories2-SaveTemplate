@@ -1,0 +1,289 @@
+//------------------------------------------------
+//--- 010 Editor v11.0.1 Binary Template
+//
+//      File: 
+//   Authors: DSC-173
+//   Version: 1.0
+//   Purpose: Monster Hunter Stories 2 Save Template
+//  Category: 
+// File Mask: .sav
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+
+struct item{
+	ushort ID <name = "Item ID", bgcolor=0x00ff00>;
+	ushort Amount <name="Amount", bgcolor=0x00ccff>;
+	int unk <hidden=true, bgcolor = 0xcccccc>;
+};
+
+struct pigment{
+	ubyte R <name="Red", bgcolor=0x0000ff>;
+	ubyte G <name="Green", bgcolor=0x00ff00>;
+	ubyte B <name="Blue", bgcolor=0xff0000>;
+	ubyte A <name="Alpha", bgcolor=0xffffff>;
+};
+
+struct weapons{
+	enum <short> equipment_type {GreatSword, SwordAndShield, Hammer, HuntingHorn, Gunlance, Bow, Armor, Talisman, Empty = 32767 } var1 <name="Weapon Type", bgcolor=0xaaffaa>;
+	short  wpnID <name="Weapon index", bgcolor=0xffaaaa>;
+	short level <name="Weapon Level", bgcolor=0xaaffff>;
+	short unk <hidden=true>;
+	int unk2[2] <hidden=true>;
+	byte unk3 <hidden=true>;
+	byte eq <name="Equipped", bgcolor=0xaaaaff>;
+	short exist <name="Weapon Exists?", bgcolor=0xaaaaaa>;
+	pigment pig1 <name="Primary Pigment", fgcolor=0xaaaaff>;
+	pigment pig2 <name="Secondary Pigment", fgcolor=0xffaaaa>;
+	int unk4[2] <hidden=true>;
+};
+
+struct armor{
+	equipment_type type <name="Equipment Type", bgcolor=0x00ff00>;
+	short armorID <name="Armor Index", bgcolor=0xff0000>;
+	short armorLevel <name="Armor Level", bgcolor=0x00ffff>;
+	short unk1;
+	int unk2[2];
+	byte unk3;
+	byte eq <name="Equipped", bgcolor=0x0000ff>;
+	short exist <name="Armor Exists?", bgcolor=0xffffff>;
+	pigment pig1 <name="Primary Pigment", fgcolor=0xaaaaff>;
+	pigment pig2 <name="Secondary Pigment", fgcolor=0xffaaaa>;
+	int unk4[2];
+};
+
+struct talisman{
+	equipment_type type <name="Equipment Type", bgcolor=0x00aa00>;
+	short type <name="Talisman Base ID", bgcolor=0xaa0000>;
+	short level <name="Talisman Level lol", bgcolor=0x00aaaa>;
+	short unk <hidden=true>;
+	int unk2[2] <hidden=true>;
+	byte unk3 <hidden=true>;
+	byte Eq <name="Equipped", bgcolor=0x0000aa>;
+	short exist <name="Talisman Exists?", bgcolor=0x777777>;
+	int unk4[4];
+	int rarity <name="Talisman Rarity", bgcolor=0x00ffff>;
+	enum <short> skill {Health_S=3000,Health_M=3001,Health_L=3002,Health_XL=3003,Critical_S=3005,Critical_M=3006,Critical_L=3007,Critical_XL=3008,Evasion_S=3010,Evasion_M=3011,Evasion_L=3012,Evasion_XL=3013,Tenacity=3015,Quick=3017,Protection_S=3019,Protection_M=3020,Protection_L=3021,Protection_XL=3022,Nesting_S=3024,Nesting_M=3025,Nesting_L=3026,Nesting_XL=3027,All_Res_S=3089,All_Res_M=3090,All_Res_L=3091,All_Res_XL=3092,Potent_S=3096,Potent_M=3097,Potent_L=3098,Potent_XL=3099,Hounding_S=3101,Hounding_M=3102,Hounding_L=3103,Hounding_XL=3104,Cold_Res=3106,Heat_Res=3108,Anti_1_Hit_KO=3110,Antivenom_S=3112,Antivenom_M=3113,Antivenom_L=3114,Antivenom_XL=3115,Antiburn_S=3117,Antiburn_M=3118,Antiburn_L=3119,Antiburn_XL=3120,Antishock_S=3122,Antishock_M=3123,Antishock_L=3124,Antishock_XL=3125,Antisleep_S=3127,Antisleep_M=3128,Antisleep_L=3129,Antisleep_XL=3130,Antistench_S=3132,Antistench_M=3133,Antistench_L=3134,Antistench_XL=3135,Antiseal_S=3137,Antiseal_M=3138,Antiseal_L=3139,Antiseal_XL=3140,Dampening_S=3142,Dampening_M=3143,Dampening_L=3144,Dampening_XL=3145,Antibleed_S=3147,Antibleed_M=3148,Antibleed_L=3149,Antibleed_XL=3150,Antiblind_S=3152,Antiblind_M=3153,Antiblind_L=3154,Antiblind_XL=3155,Antistatus_S=3157,Antistatus_M=3158,Antistatus_L=3159,Antistatus_XL=3160,Kinship_S=3162,Kinship_M=3163,Kinship_L=3164,Kinship_XL=3165,Command_S=3167,Command_M=3168,Command_L=3169,Command_XL=3170,Head_On_S=3172,Head_On_M=3173,Head_On_L=3174,Head_On_XL=3175,All_Out_S=3177,All_Out_M=3178,All_Out_L=3179,All_Out_XL=3180,Showdown_S=3182,Showdown_M=3183,Showdown_L=3184,Showdown_XL=3185,Flinch_S=3187,Flinch_M=3188,Flinch_L=3189,Flinch_XL=3190,Bonding_S=3192,Bonding_M=3193,Bonding_L=3194,Bonding_XL=3195,Rapport_S=3197,Rapport_M=3198,Rapport_L=3199,Rapport_XL=3200,Bomber_S=3202,Bomber_M=3203,Bomber_L=3204,Bomber_XL=3205,Revival_S=3207,Revival_M=3208,Revival_L=3209,Revival_XL=3210,Guard_Heal_S=3212,Guard_Heal_M=3213,Guard_Heal_L=3214,Guard_Heal_XL=3215,Unscathed_S=3217,Unscathed_M=3218,Unscathed_L=3219,Unscathed_XL=3220,Hero_S=3222,Hero_M=3223,Hero_L=3224,Hero_XL=3225,Potential_S=3227,Potential_M=3228,Potential_L=3229,Potential_XL=3230,Escape_S=3232,Escape_M=3233,Escape_L=3234,Escape_XL=3235,Timely_S=3237,Timely_M=3238,Timely_L=3239,Timely_XL=3240,Partner_S=3242,Partner_M=3243,Partner_L=3244,Partner_XL=3245,Crit_Heal_S=3247,Crit_Heal_M=3248,Crit_Heal_L=3249,Crit_Heal_XL=3250,Crit_Kin_S=3252,Crit_Kin_M=3253,Crit_Kin_L=3254,Crit_Kin_XL=3255,Fortify_S=3257,Fortify_M=3258,Fortify_L=3259,Fortify_XL=3260,Saver_S=3262,Saver_M=3263,Saver_L=3264,Saver_XL=3265,Breaker_S=3267,Breaker_M=3268,Breaker_L=3269,Breaker_XL=3270,Counter_S=3272,Counter_M=3273,Counter_L=3274,Counter_XL=3275,Draw_S=3277,Draw_M=3278,Draw_L=3279,Draw_XL=3280,Thrust_S=3282,Thrust_M=3283,Thrust_L=3284,Thrust_XL=3285,Sonorous_S=3287,Sonorous_M=3288,Sonorous_L=3289,Sonorous_XL=3290,Capacity_S=3292,Capacity_M=3293,Capacity_L=3294,Capacity_XL=3295,Marksman_S=3297,Marksman_M=3298,Marksman_L=3299,Marksman_XL=3300,Furyslash_S=3302,Furyslash_M=3303,Furyslash_L=3304,Furyslash_XL=3305,Furybash_S=3307,Furybash_M=3308,Furybash_L=3309,Furybash_XL=3310,Weak_Pt_S=3312,Weak_Pt_M=3313,Weak_Pt_L=3314,Weak_Pt_XL=3315} var1 <name="Skill ID 1", bgcolor=0xFFFF00>;
+	skill skill2 <name="Skill ID 2", bgcolor=0xff00ff>;
+	int unk5;
+};
+struct itemUnlock{
+	byte unlocked : 1;
+	byte unlocked : 1;
+	byte unlocked : 1;
+	byte unlocked : 1;
+	byte unlocked : 1;
+	byte unlocked : 1;
+	byte unlocked : 1;
+	byte unlocked : 1;
+};
+
+struct gene{
+            short gene_id <name="Gene ID", bgcolor=0x00ff00>;
+            byte level_locked <name="Gene is Locked", bgcolor=0x0000ff>;
+            byte gene_level <name="Gene level (stars)", bgcolor=0x00ffff>;
+};
+
+struct egg{
+	SetBackColor( 0xaaaaaa );
+	int monstie_ID <name="Monster ID", bgcolor=0x00ff00>;
+	int egg_rare <name="Egg Rarity", bgcolor=0x00ffff>;
+	gene g[9];
+	int unk0[5] <comment="Persistent", bgcolor=0x000000>;
+	int denrank <name="Rank of Retrieved Den", bgcolor=0xaaaaff>;
+	byte denrarity <name="Rarity of Retrieved Den", bgcolor=0xffffaa>;
+	byte unk2 <hidden=true>;
+	short empty2 <hidden=true, bgcolor=0x000000>;
+	int denarea <name="Location of Retrieved Den", bgcolor=0xaaffaa>;
+	int unk1[3] <hidden=true>;
+	int empty[8] <hidden=true, bgcolor=0x000000>;
+};
+
+struct player{
+	char name[64] <name="Player Name", bgcolor=0xaaffaa>; // might be longer idk
+    pigment Skincolor<name = "Skincolor">;
+    pigment UnkColor0<name="Hair Color 1", fgcolor=0xffffaa>;
+    pigment UnkColor1<name="Eye Color Left", fgcolor=0xaaffff>;
+    int unk0<hidden = true>;
+    pigment UnkColor2<hidden = true>;
+    pigment UnkColor3<name="Makeup Color">;
+    pigment UnkColor4<name="Eyebrow Color">;
+    pigment UnkColor5<name="Hair Color 2", fgcolor=0xffffaa>;
+    pigment UnkColor6<name="Eye Color Right", fgcolor=0xaaffff>;
+    pigment UnkColor7<name="Armor Pigment 1">;
+    pigment UnkColor8<name="Armor Pigment 2">;
+
+    FSkip(0x20);
+    unsigned byte hairstyle<name = "Haistyle">;
+    FSkip(0x1B);
+    unsigned byte eyes<name = "Eyes">;
+    unsigned byte mouth<name = "Mouth">;
+    unsigned byte makeup<name = "Makeup">;
+    FSkip(0x9);
+    unsigned byte body<name = "Body">;
+    unsigned byte unk1<hidden = true>;
+    unsigned byte face<name = "Face">;
+    unsigned byte voice<name = "Voice">;
+    FSkip(0x30);
+    uint16 unk2<hidden = true>;
+    uint16 level<name = "Level", bgcolor=0x00ff00>;
+    float unk3<hidden = true>;
+    FSkip(0x60);
+    uint32 exp<name = "Exp", bgcolor=0x0077ff>;
+    FSkip(0x100);
+};
+
+struct ally{
+	char name[64] <name="Ally Name", bgcolor=0x77ff77>;
+
+	pigment Skincolor<name = "Skincolor">;
+   	pigment UnkColor0<name="Hair Color 1", fgcolor=0xffffaa>;
+   	pigment UnkColor1<name="Eye Color Left", fgcolor=0xaaffff>;
+   	int unk<hidden = true>;
+    	pigment UnkColor2<hidden = true>;
+    	pigment UnkColor3<name="Makeup Color">;
+   	pigment UnkColor4<name="Eyebrow Color">;
+    	pigment UnkColor5<name="Hair Color 2", fgcolor=0xffffaa>;
+   	pigment UnkColor6<name="Eye Color Right", fgcolor=0xaaffff>;
+    	pigment UnkColor7<name="Armor Pigment 1">;
+    	pigment UnkColor8<name="Armor Pigment 2">;
+
+	int unk0[42 - 11];
+	short unk1;
+	short level <name="Level", bgcolor=0x00ff00>;
+	int unk2[25];
+	uint exp<name="Exp", bgcolor=0x0077ff>;
+	int unk3[64];
+};
+
+struct monstie{
+    	SetBackColor( 0xaaaaaa );
+    	char name[48] <name="Monstie Name", bgcolor=0x00ff00>;
+    	int sorting <name="Sorting ID", bgcolor=0x0000ff>;
+	enum <int> monster_id {Velocidrome=1,Rathian=2,Pink_Rathian=3,Gold_Rathian=4,Rathalos=5,Azure_Rathalos=6,Silver_Rathalos=7,Congalala=8,Emerald_Congalala=9,Yian_Kut_Ku=10,Blue_Yian_Kut_Ku=11,Aptonoth=12,Iodrome=13,Tigrex=14,Brute_Tigrex=15,Molten_Tigrex=16,Lagombi=19,Arzuros=20,Nargacuga=21,Green_Nargacuga=22,Khezu=23,Red_Khezu=24,Diablos=25,Black_Diablos=26,Gendrome=27,Cephadrome=28,Royal_Ludroth=29,Purple_Ludroth=30,Gypceros=31,Purple_Gypceros=32,Basarios=33,Ruby_Basarios=34,Gravios=35,Black_Gravios=36,Yian_Garuga=37,Seregios=38,Monoblos=39,White_Monoblos=40,Popo=41,Apceros=42,Great_Jaggi=43,Great_Baggi=44,Kecha_Wacha=45,Ash_Kecha_Wacha=46,Nerscylla=47,Shrouded_Nerscylla=48,Kirin=49,Oroshi_Kirin=50,Deviljho=51,Brachydios=52,Zinogre=53,Stygian_Zinogre=54,Bulldrome=55,Barroth=56,Jade_Barroth=57,Barioth=58,Sand_Barioth=59,Uragaan=60,Zamtrios=62,Qurupeco=63,Crimson_Qurupeco=64,Lagiacrus=65,Ivory_Lagiacrus=66,Lutes_Rathalos=69,RathianUnk=75,Glavenus=81,Rajang=84,Kushala_Daora=85,Teostra=86,Daimyo_Hermitaur=88,Plum_Daimyo_Hermitaur=89,Agnakor_=90,Glacial_Agnakor=91,Pukei_Pukei=110,Nergigante=111,Mizutsune=112,Astalos=113,Boltreaver_Astalos=114,Dreadqueen_Rathian=117,Dreadking_Rathalos=118,Bloodbath_Diablos=119,Grimclaw_Tigrex=121,Silverwind_Nargacuga_=123,Thunderlord_Zinogre=128,Hellblade_Glavenus=136,Soulseer_Mizutsune=137,Gammoth=138,Elderfrost_Gammoth=139,Anjanath=140,Fulgur_Anjanath=141,Kulu_Ya_Ku=144,Tobi_Kadachi=145,Paolumu=147,Legiana=149,Bazelgeuse=151,Velkhana=153,Ratha_Cant_Flight=155,Ratha_small=156,Ratha=157,Razewing_Ratha_small=158,Gold_Rathian2=159,Guardian_Ratha=160,Oltura=161,Avmar=162,Razewing_Ratha=163,Shaulk=164,Frostfang=165,Rathi_=166,Yian_garuga_Enemy=167,Nargacuga_Enemy=168,Tigrex_Enemy=169,Ruby_Basarios_Enemy=170,Zinogre_Enemy=171,Monoblos_Enemy=172,Brute_Tigrex_Enemy=173,Stygian_Zinogre_Enemy=174,Razewing_Ratha_unk=175,Palamute_Normal=176,Palamute_Fire=177,Palamute_Water=178,Palamute_Thunder=179,Palamute_Ice=180,Palamute_Dragon=181} var1 <name="Monster ID", bgcolor=0x00ffff>;
+	byte emp <hidden=true>;
+	byte size <name="Monstie Relative Size", bgcolor=0xff00ff>;
+
+	byte favorite <name="Favorite", bgcolor=0xccaaff>;
+
+	byte unk10 <hidden=true>;
+
+	byte ability1 <name="Monster Primary Ability", bgcolor=0xff0000>;       
+	byte ability2 <name="Monster Secondary Ability", bgcolor=0xffff00>;  
+
+	byte unk8 <hidden=true>;
+	byte locked <name="Locked", bgcolor=0x0000ff>;
+    int unk[2] <hidden=true>;
+
+	int hp <name="Current Health", bgcolor=0xaaffaa>;
+	int hp2 <name="Max Health", bgcolor=0xaaffff>;
+	int speed <name="Speed", bgcolor=0xffccaa>;	
+
+    short unk0 <hidden=true>;
+
+    short level <name="Monster Level", bgcolor=0x00ff00>;
+
+    float unkI <name="Tested Unknown", bgcolor=0xff55cc, hidden=true>;
+    int unk1[10] <hidden=true>;
+    
+    SetForeColor( 0xaaaaff );
+    short n_atk <name="Normal Attack", bgcolor=0xffffff>;
+    short f_atk <name="Fire Attack", bgcolor=0x0000ff>;
+    short w_atk <name="Water Attack", bgcolor=0xff0000>;
+    short t_atk <name="Thunder Attack", bgcolor=0x00ffff>;
+    short i_atk <name="Ice Attack", bgcolor=0xffff00>;
+    short d_atk <name="Dragon Attack", bgcolor=0xff00ff>;
+    SetForeColor( 0xffffff );
+
+    int unk2[2] <hidden=true>;
+
+    SetForeColor( 0xffaaaa );
+    short n_def <name="Normal Defense", bgcolor=0xffffff>;
+    short f_def <name="Fire Defense", bgcolor=0x0000ff>;
+    short w_def <name="Water Defense", bgcolor=0xff0000>;
+    short t_def <name="Thunder Defense", bgcolor=0x00ffff>;
+    short i_def <name="Ice Defense", bgcolor=0xffff00>;
+    short d_def <name="Dragon Defense", bgcolor=0xff00ff>;
+    SetForeColor( 0xffffff );
+
+    byte v_nut <name="Vitality Nutriments", bgcolor=0xaaffaa>;
+	byte a_nut <name="Attack Nutriments", bgcolor=0xaaaaff>;
+    byte d_nut <name="Defense Nutriments", bgcolor=0xaaccff>;
+	byte unk3 <hidden=true>;
+
+    SetForeColor( 0xaaffaa );
+    byte hp_bonus <name="Max HP Bonus", bgcolor=0x00ff00>;
+    SetForeColor( 0xaaaaff );
+    byte n_atk_bonus <name="Normal Attack Bonus", bgcolor=0xffffff>;
+    byte f_atk_bonus <name="Fire Attack Bonus", bgcolor=0x0000ff>;
+    byte w_atk_bonus <name="Water Attack Bonus", bgcolor=0xff0000>;
+    byte t_atk_bonus <name="Thunder Attack Bonus", bgcolor=0x00ffff>;
+    byte i_atk_bonus <name="Ice Attack Bonus", bgcolor=0xffff00>;
+    byte d_atk_bonus <name="Dragon Attack Bonus", bgcolor=0xff00ff>;
+    SetForeColor( 0xffaaaa );
+    byte n_def_bonus <name="Normal Defense Bonus", bgcolor=0xffffff>;
+    byte f_def_bonus <name="Fire Defense Bonus", bgcolor=0x0000ff>;
+    byte w_def_bonus <name="Water Defense Bonus", bgcolor=0xff0000>;
+    byte t_def_bonus <name="Thunder Defense Bonus", bgcolor=0x00ffff>;
+    byte i_def_bonus <name="Ice Defense Bonus", bgcolor=0xffff00>;
+    byte d_def_bonus <name="Dragon Defense Bonus", bgcolor=0xff00ff>;
+    SetForeColor( 0xffffff );
+
+    byte unk4[3] <hidden=true>;
+    int unk5[1] <hidden=true>;
+
+	int exp <name="Monstie Total EXP", bgcolor=0x0077ff>;
+
+    int unk6[35] <hidden=true>;
+
+    
+    gene Genes[9];
+    int unk12[2] <hidden=true>;
+	short KSSkill <name="Kinship Skill ID", bgcolor=0xffccaa>;
+	short unkII <name="Tested Unknown", bgcolor=0xff55cc, hidden=true>;
+    int unk7[3] <hidden=true>;
+	int KinshipStart1 <name="Starting Kinship", bgcolor=0xaaffaa>;
+	int unk15 <hidden=true>;
+	int64 KinshipStart2 <name="Unknown Kinship", bgcolor=0x0000ff>;
+	int unk14 <hidden=true>;
+    SetBackColor( cNone );
+};
+struct partyMonstie{
+	int sort <name="Monstie Unique ID", bgcolor=0x00ffff>;
+};
+struct Expedition{
+	enum status {Home=1, Initiated, Completed} var1 <name="Status", bgcolor=0x00ff00>;
+	enum status s <name="Unlocked", bgcolor=0x0000ff>;
+	int sort[6] <name="Monstie Unique ID", bgcolor=0x00ffff>;
+	enum <int> area {Hakolo_Island, Alcala, Loloska, Lamure, Terga, Hakolo_Fbn_Gds, HR_Hakolo_Island, HR_Alcala, HR_Loloska, HR_Lamure, HR_Terga, HR_Hakolo_Fbn_Gds} var1 <name="Expedition Locale", bgcolor=0xffff00>;
+	enum <int> method {Balanced, Thorough, Hasty, EXP_Enthusiast, Item_Gatherer, Materialist, Treasure_Hunter} var1 <name="Instructions", bgcolor=0xff0000>;
+	float duration <name="Duration", bgcolor=0xff00ff>;
+	float remain <name="Remaining time", bgcolor=0x770077>;
+	int unk;
+};
+
+struct file{
+	FSeek(132);
+	item i[1999];
+	weapons w[700];
+	armor a[400];
+	talisman t[200];
+	FSeek(76696);
+	itemUnlock itu[1780];
+    FSeek(68828);
+	egg eggs[12];
+	FSkip(2889804);
+	player p;
+	ally al[30];
+	FSkip(4);
+    monstie m[500];
+	FSkip(60);
+	monstie AllyMonstie[30];
+	partyMonstie pm[6];
+	FSeek(3198968);
+	Expedition e[6];
+	FSeek(3185436);
+	
+};
+file f;
